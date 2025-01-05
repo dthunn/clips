@@ -25,6 +25,7 @@ export class TabsContainerComponent implements AfterContentInit {
 
     tab.active.set(true);
 
+    // Prevent default link behavior
     return false;
   }
 }
