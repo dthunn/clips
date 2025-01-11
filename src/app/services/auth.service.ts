@@ -6,13 +6,7 @@ import {
   authState,
   signOut,
 } from '@angular/fire/auth';
-import {
-  Firestore,
-  collection,
-  addDoc,
-  doc,
-  setDoc,
-} from '@angular/fire/firestore';
+import { Firestore, doc, setDoc } from '@angular/fire/firestore';
 import IUser from '../models/user.model';
 import { delay, filter, map, switchMap } from 'rxjs/operators';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
@@ -34,7 +28,7 @@ export class AuthService {
     this.router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),
-        map((event) => {
+        map(() => {
           let currentRoute = this.route;
 
           while (currentRoute.firstChild) {
